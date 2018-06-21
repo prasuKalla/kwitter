@@ -1,0 +1,38 @@
+<div class="row feed">
+    <div class="col-md-4">
+     <div ng-hide="currentUser">
+       <h4> Login: </h4>
+        <br><br>
+        <input type="text" placeholder="Username" ng-model="username">
+        <br><br>
+        <input type="text" placeholder="Password" ng-model="Password">
+        <br><br>
+        <button type="button" ng-click="signin()">Sign In</button>
+        <a href="#/signup">Not a member> Sign up</a>
+     </div>
+      <div ng-show="currentUser">
+          Hello , {{ currentUser }}.
+          <br><br>
+          <a href ng-click="logout()">Logout</a>
+      </div>
+    </div>
+    <div class="col-md-8">
+        <div class="new-chat" ng-show="currentUser">
+            <input type="text" class="form-control" ng-model="newChat" placeholder="what do you have to tweet today">
+            <button type="button" class="btn btn-primary" ng-click="submitNewChat()"> Submit </button>
+        </div>
+
+       <h3 ng-repeat="chat in chats">
+         <span class="glyphicon glyphicon-user" aria-hidden="true"> </span>
+         {{ chat }}
+         <a href ng-click="removeChat(chat)"><span class="glyphicon glyphicon-remove"></span>
+          </a> 
+          <br>
+         <small>{{ chat.username }}</small>           
+        </h3>
+
+    </div>
+</div>
+
+<script  src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
